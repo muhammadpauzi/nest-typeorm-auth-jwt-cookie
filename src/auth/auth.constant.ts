@@ -1,0 +1,6 @@
+export const AuthMessages = {
+  WRONG_CREDENTIALS: 'WRONG_CREDENTIALS',
+  INVALID_TOKEN: 'INVALID_TOKEN',
+};
+
+export const JWT_COOKIE_TOKEN_KEY = '_TOKENID_';
