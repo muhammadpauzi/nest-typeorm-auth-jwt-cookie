@@ -28,7 +28,6 @@ export class AuthController {
 
   @Public()
   @Post('login')
-  @HttpCode(HttpStatus.OK)
   @ApiOkResponse({
     description: 'Login successful',
   })
@@ -42,9 +41,7 @@ export class AuthController {
     return this.authService.login(body, reply);
   }
 
-  @UseInterceptors(ClassSerializerInterceptor)
   @Get('me')
-  @HttpCode(HttpStatus.OK)
   @ApiOkResponse({
     type: MeResponseDto,
   })
@@ -54,7 +51,6 @@ export class AuthController {
   }
 
   @Delete('logout')
-  @HttpCode(HttpStatus.OK)
   @ApiOkResponse({
     description: 'Logout successful',
   })

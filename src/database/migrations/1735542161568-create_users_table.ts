@@ -12,7 +12,7 @@ export class CreateUsersTable1735542161568 implements MigrationInterface {
     await queryRunner.query(`
         CREATE TABLE users (
             id SERIAL PRIMARY KEY,
-            organization_id INTEGER NOT NULL REFERENCES organizations(id) ON DELETE CASCADE, -- Foreign key referencing organizations
+            organization_id INTEGER REFERENCES organizations(id) ON DELETE CASCADE, -- Foreign key referencing organizations
             name VARCHAR(128) NOT NULL,
             username VARCHAR(128) NOT NULL UNIQUE,
             password VARCHAR(255) NOT NULL, -- Store password securely (e.g., bcrypt hash)
@@ -59,5 +59,6 @@ export class CreateUsersTable1735542161568 implements MigrationInterface {
 
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable('users');
+    await queryRunner.query(`DROP TYPE user_role`);
   }
 }

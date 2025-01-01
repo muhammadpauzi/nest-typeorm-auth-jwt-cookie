@@ -7,8 +7,7 @@ export class CreateOrganizationsTable1735542153421
     await queryRunner.query(
       `CREATE TABLE organizations (
         id SERIAL PRIMARY KEY,
-        name VARCHAR(128) NOT NULL,
-        slug VARCHAR(255) NOT NULL UNIQUE,
+        name VARCHAR(128) NOT NULL UNIQUE,
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
     );`,

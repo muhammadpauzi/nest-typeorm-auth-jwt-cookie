@@ -1,8 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Role } from '@/common/enums/role.enum';
 import { Exclude, Expose } from 'class-transformer';
 
-export class MeResponseDto {
+export class OrganizationResponseDto {
   @ApiProperty()
   @Expose()
   id: number;
@@ -13,13 +12,13 @@ export class MeResponseDto {
 
   @ApiProperty()
   @Expose()
-  username: string;
+  slug: string;
 
-  @ApiProperty({ enum: Role })
+  @ApiProperty()
   @Expose()
-  role: Role;
+  created_at: Date;
 
-  // @ApiProperty()
-  // @Expose()
-  // organization_id?: number;
+  @ApiProperty()
+  @Expose()
+  updated_at: Date;
 }

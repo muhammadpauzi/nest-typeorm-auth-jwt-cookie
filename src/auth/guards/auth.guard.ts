@@ -54,11 +54,13 @@ export class AuthGuard implements CanActivate {
           role: true,
           name: true,
         },
+        relations: { organization: true },
         where: { id: payload.sub },
       });
-
+      console.log(user);
       request['user'] = user;
-    } catch {
+    } catch (e) {
+      console.log(e);
       throw new UnauthorizedException(AuthMessages.INVALID_TOKEN);
     }
 
